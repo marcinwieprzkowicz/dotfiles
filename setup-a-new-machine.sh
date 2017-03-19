@@ -5,9 +5,6 @@
 ################################################################################
 # install of common things
 
-# sexy git diffs
-npm install -g diff-so-fancy
-
 # change to bash 4 (installed by homebrew)
 BASHPATH=$(brew --prefix)/bin/bash
 #sudo echo $BASHPATH >> /etc/shells
@@ -24,9 +21,9 @@ ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom
 
 # set up osx defaults
 #   maybe something else in here https://github.com/hjuutilainen/dotfiles/blob/master/bin/osx-user-defaults.sh
-# sh .osx
+sh .osx
 
-##############################################################################################################
+################################################################################
 # symlinks to link dotfiles into ~/
 
 #   move git credentials into ~/.gitconfig.local    	http://stackoverflow.com/a/13615531/89484
@@ -36,4 +33,4 @@ ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom
 # ./symlink-setup.sh
 
 ###
-##############################################################################################################
+################################################################################

@@ -1,4 +1,5 @@
-# Easier navigation: .., ..., ~ and -
+###############################################################################
+# easier navigation: .., ..., ~ and -
 alias ..="cd .."
 alias cd..="cd .."
 alias ...="cd ../.."
@@ -7,12 +8,7 @@ alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
-# mv, rm, cp
-alias mv='mv -v'
-alias rm='rm -i -v'
-alias cp='cp -v'
-
-###
+###############################################################################
 # time to upgrade `ls`
 
 # use coreutils `ls` if possible…
@@ -22,48 +18,68 @@ hash gls >/dev/null 2>&1 || alias gls="ls"
 if gls --color > /dev/null 2>&1; then colorflag="--color"; else colorflag="-G"; fi;
 export CLICOLOR_FORCE=1
 
-# ls options: A = include hidden (but not . or ..), F = put `/` after folders, h = byte unit suffixes
-alias ls='gls -AFh ${colorflag} --group-directories-first'
+# ls options:
+# - A = include hidden (but not . or ..)
+# - F = put `/` after folders
+# - h = byte unit suffixes
+# - l = display as list
+alias ls='gls -AFlh ${colorflag} --group-directories-first'
 alias lsd='ls -l | grep "^d"' # only directories
-#    `la` defined in .functions
+# `la` defined in .functions
 ###
-
 
 # `cat` with beautiful colors. requires: sudo easy_install -U Pygments
 alias c='pygmentize -O style=monokai -f console256 -g'
 
-###
+###############################################################################
 # GIT STUFF
-alias push="git push"
+alias gb='git branch'
+alias gl='git log'
+alias glo='git log --oneline'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gcam='git commit --amend'
+alias gd='git diff'
+alias gp='git pull'
+alias gpr='git pull --rebase'
+alias gpu='git push'
+alias gs='git status'
+alias gss='git stash save'
+alias gsa='git stash apply'
+alias gsp='git stash pop'
+alias gsl='git stash list'
+alias grc='git rebase --continue'
+alias gri='git rebase --interactive'
+alias gpuh='git push heroku master'
 
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
 
-# git root
-alias master="git checkout master"
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache"
 
 # Recursively delete `.DS_Store` files
-alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
-
-alias diskspace_report="df -P -kHl"
-alias free_diskspace_report="diskspace_report"
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
 alias g="git"
 alias v="vim"
-alias ungz="gunzip -k"
 
 # File size
 alias fs="stat -f \"%z bytes\""
 
-# Empty the Trash on all mounted volumes and the main HDD. then clear the useless sleepimage
-alias emptytrash=" \
-    sudo rm -rfv /Volumes/*/.Trashes; \
-    rm -rfv ~/.Trash/*; \
-    sudo rm -v /private/var/vm/sleepimage; \
-    rm -rv \"/Users/paulirish/Library/Application Support/stremio/Cache\";  \
-    rm -rv \"/Users/paulirish/Library/Application Support/stremio/stremio-cache\" \
-"
+alias diskspace_report="df -P -kHl"
+alias free_diskspace_report="diskspace_report"
+
+# Empty the Trash on all mounted volumes and the main HDD
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # Update installed Ruby gems, Homebrew, npm, and their installed packages
 alias brew_update="brew -v update; brew upgrade --force-bottle --cleanup; brew cleanup; brew prune; brew doctor;"

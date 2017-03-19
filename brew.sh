@@ -12,6 +12,11 @@ brew install moreutils
 # GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 brew install findutils
 
+# Bash 4
+# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
+brew install bash
+brew install bash-completion
+
 brew install git
 brew install --force imagemagick@6
 brew install --force qt@5.5
