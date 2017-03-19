@@ -84,7 +84,5 @@ sh .osx
 # symlink it up!
 ./symlink-setup.sh
 
-# add manual symlink for .ssh/config and probably .config/fish
-
 ###
 ##############################################################################################################
