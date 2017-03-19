@@ -64,7 +64,6 @@ Lastly, I use `open .` to open Finder from this path. (That's just available nor
 * `.aliases`
 * `.bash_profile`
 * `.bash_prompt`
-* `.bashrc`
 * `.exports`
 * `.functions`
 * `.extra` - not included, explained below
