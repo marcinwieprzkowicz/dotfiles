@@ -1,6 +1,5 @@
 # vim as default
 export EDITOR="vim"
-
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
@@ -8,7 +7,29 @@ export MANPAGER="less -X"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
-# here's LS_COLORS
-# github.com/trapd00r/LS_COLORS
-command -v gdircolors >/dev/null 2>&1 || alias gdircolors="dircolors"
-eval "$(gdircolors -b ~/.dircolors)"
+##
+## gotta tune that bash_history…
+##
+
+# Use standard ISO 8601 timestamp
+# %F equivalent to %Y-%m-%d
+# %T equivalent to %H:%M:%S (24-hours format)
+export HISTTIMEFORMAT='%F %T '
+
+# keep history up to date, across sessions, in realtime
+#  http://unix.stackexchange.com/a/48113
+export HISTCONTROL="erasedups:ignoreboth"       # no duplicate entries
+export HISTSIZE=32768                           # larger bash history (allow 32³ entries; default is 500)
+export HISTFILESIZE=$HISTSIZE                   # big big history
+type shopt &> /dev/null && shopt -s histappend  # append to history, don't overwrite it
+
+# Don't record some commands
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+
+# Save multi-line commands as one command
+shopt -s cmdhist
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# ^ the only downside with this is [up] on the readline will go over all history not just this bash session.

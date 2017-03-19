@@ -24,7 +24,7 @@ ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom
 
 # set up osx defaults
 #   maybe something else in here https://github.com/hjuutilainen/dotfiles/blob/master/bin/osx-user-defaults.sh
-sh .osx
+# sh .osx
 
 ##############################################################################################################
 # symlinks to link dotfiles into ~/
@@ -33,7 +33,7 @@ sh .osx
 #   now .gitconfig can be shared across all machines and only the .local changes
 
 # symlink it up!
-./symlink-setup.sh
+# ./symlink-setup.sh
 
 ###
 ##############################################################################################################

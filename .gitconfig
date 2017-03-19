@@ -71,20 +71,6 @@
 [help]
 	autocorrect = 1
 
-# push easily. http://stackoverflow.com/a/23918418/89484
-[push]
-	default = current
-
 # use separate file for username / github token / etc
 [include]
   path = ~/.gitconfig.local
-
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
-
-[fetch]
-	prune = true
-[diff]
-	compactionHeuristic = true
