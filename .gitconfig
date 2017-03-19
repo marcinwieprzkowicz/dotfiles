@@ -50,10 +50,6 @@
 	changed = green
 	untracked = cyan
 
-# git mergetool
-[merge]
-	tool = opendiff
-
 # rewrites of repo paths
 [url "git@github.com:"]
 	insteadOf = "https://github.com/"
@@ -67,7 +63,7 @@
 [url "git@gist.github.com:"]
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
-	
+
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
@@ -82,9 +78,6 @@
 # use separate file for username / github token / etc
 [include]
   path = ~/.gitconfig.local
-
-#[init]
-#	templatedir = ~/.git_template
 
 [filter "lfs"]
 	clean = git-lfs clean %f
