@@ -98,7 +98,6 @@ I don't know how other folks manage their $PATH, but this is how I do mine:
 PATH=$PATH:/opt/local/sbin
 PATH=$PATH:/bin
 PATH=$PATH:~/.rvm/bin
-PATH=$PATH:~/code/git-friendly
 # ...
 
 export PATH
@@ -115,7 +114,7 @@ Mathias's repo is the canonical for this, but you should probably run his or min
 
 ### `~/bin`
 
-One-off binaries that aren't via an npm global or homebrew. [git open](https://github.com/paulirish/git-open), [wifi-password](https://github.com/rauchg/wifi-password), [coloredlogcat](https://developer.sinnerschrader-mobile.com/colored-logcat-reloaded/507/), [git-overwritten](https://github.com/mislav/dotfiles/blob/master/bin/git-overwritten), and `subl` for Sublime Text.
+One-off binaries that aren't via an npm global or homebrew. [git open](https://github.com/paulirish/git-open), [coloredlogcat](https://developer.sinnerschrader-mobile.com/colored-logcat-reloaded/507/), and `subl` for Sublime Text.
 
 ### Syntax highlighting for these files
 
